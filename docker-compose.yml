@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  dmn-tester-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    volumes:
+      - ./demo:/app/demo
+    depends_on:
+      - dmn-tester-db
+
+  dmn-tester-db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+    ports:
+      - "1433:1433"
+    volumes:
+      - dmn-tester-data:/var/opt/mssql
+
+volumes:
+  dmn-tester-data: 

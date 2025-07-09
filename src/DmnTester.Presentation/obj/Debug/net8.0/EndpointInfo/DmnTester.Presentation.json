@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DmnTester.Presentation",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/dmn/configs": {
+      "get": {
+        "tags": [
+          "Dmn"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/configs/{decisionId}": {
+      "get": {
+        "tags": [
+          "Dmn"
+        ],
+        "parameters": [
+          {
+            "name": "decisionId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/evaluate": {
+      "post": {
+        "tags": [
+          "Dmn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/test": {
+      "post": {
+        "tags": [
+          "Dmn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/generate-test": {
+      "post": {
+        "tags": [
+          "Dmn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTestRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTestRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateTestRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/batch-test": {
+      "post": {
+        "tags": [
+          "Dmn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchTestRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchTestRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchTestRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/dmn/convert-generate-to-batch": {
+      "post": {
+        "tags": [
+          "Dmn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConvertGenerateToBatchRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConvertGenerateToBatchRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConvertGenerateToBatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchTestItem": {
+        "type": "object",
+        "properties": {
+          "dmnFileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "decisionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "testCases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SingleTestCase"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BatchTestRequest": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchTestItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConvertGenerateToBatchRequest": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GenerateTestOutput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EvaluateRequest": {
+        "type": "object",
+        "properties": {
+          "dmnPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "decisionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "inputs": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerateTestOutput": {
+        "type": "object",
+        "properties": {
+          "decisionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "testConfig": {
+            "$ref": "#/components/schemas/TestConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenerateTestRequest": {
+        "type": "object",
+        "properties": {
+          "dmnFileName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SingleTestCase": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          },
+          "expectedOutputs": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestConfig": {
+        "type": "object",
+        "properties": {
+          "decisionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dmnPath": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/TestConfigData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestConfigData": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          },
+          "testCases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SingleTestCase"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestRequest": {
+        "type": "object",
+        "properties": {
+          "decisionId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

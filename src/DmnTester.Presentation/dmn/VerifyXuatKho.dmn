@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_04p7ibe" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.5.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="VerifyExportType" name="VerifyExportType">
+    <informationRequirement id="InformationRequirement_0ni88n6">
+      <requiredDecision href="#IsSameShop" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0obljnm" hitPolicy="COLLECT">
+      <input id="Input_1" label="BusinessFlow">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>BusinessFlow</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1s8i3m5" label="Loại tài sản">
+        <inputExpression id="LiteralExpression_1051vvg" typeRef="string">
+          <text>AssetCategory</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jwxqci" label="IsContract">
+        <inputExpression id="LiteralExpression_11819yg" typeRef="boolean">
+          <text>IsContract</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1h8129v" label="FundSource">
+        <inputExpression id="LiteralExpression_1xzcdo4" typeRef="string">
+          <text>FundSource</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_03pt36u" label="Cùng PGD">
+        <inputExpression id="LiteralExpression_0f71ujv" typeRef="boolean">
+          <text>IsSameShop</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_172ajmj" label="ShopName của kho giữ tài sản">
+        <inputExpression id="LiteralExpression_1g9paof" typeRef="string">
+          <text>AssetShopName</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_17bv56c" label="Loại SP">
+        <inputExpression id="LiteralExpression_0tpq5pe" typeRef="string">
+          <text>CreditProduct</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_05bpa8a" label="PartnerProductCode">
+        <inputExpression id="LiteralExpression_0h3rizz" typeRef="string">
+          <text>PartnerProductCode</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ha2pri" label="Số lượng GNN đang vay">
+        <inputExpression id="LiteralExpression_1otievt" typeRef="integer">
+          <text> NumberOfLoan</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ho05ih" label="Trạng thái tài sản trong kho" biodi:width="201">
+        <inputExpression id="LiteralExpression_1fhmfap" typeRef="integer">
+          <text>AssetStoreStatus</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ExportType" name="ExportType" typeRef="" biodi:width="306" />
+      <output id="OutputClause_02mbk2k" label="primaryRule" name="primaryRule" typeRef="boolean" />
+      <output id="OutputClause_16fcpt9" label="MessageDetails" name="MessageDetail" typeRef="string" biodi:width="266" />
+      <rule id="DecisionRule_0a88f3a">
+        <inputEntry id="UnaryTests_1un3mvn">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xngs2v">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ayps5x">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dabawl">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hyxo36">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vahm4s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nldc7x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0doa6d9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0of9m4q">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0khsomn">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1clwbft">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ubk8sn">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1pecvcp">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04uqtxy">
+        <inputEntry id="UnaryTests_1j66007">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pab0b5">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h438at">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1guslub">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0erke0c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07lcxjz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ex3v9l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lcf53t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j0fscx">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i7ywek">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11dj354">
+          <text>{
+  "ExportType": 3,
+  "ExportTypeName": "Không xuất kho tài sản",
+  "ExportPriority": 2,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 0
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ksr57m">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1uvltoc">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g3zxml">
+        <inputEntry id="UnaryTests_0fw3kk9">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rkhe44">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kavnq5">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ibx6p2">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_154vv8z">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q15o7a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nwr5ms">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wlwru5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pyt9go">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mv3ivd">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nadgp2">
+          <text>{
+  "ExportType": 3,
+  "ExportTypeName": "Không xuất kho tài sản",
+  "ExportPriority": 2,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 0
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_109nbr0">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xyivcd">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fyizv4">
+        <inputEntry id="UnaryTests_04ffcht">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01orxuc">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06lcmcn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h8giig">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b4p1l7">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19e3p18">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_059s3ot">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lgzdjg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lqlpac">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w2glob">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ohrxbe">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cauc9y">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jcibso">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0a9lk87">
+        <inputEntry id="UnaryTests_1e6eqcy">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e81n9f">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b7me13">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k281uk">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ae9z8f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09g4vcg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08auymt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0od0vlt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k1w3ko">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vaocqm">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13my1tq">
+          <text>{
+  "ExportType": 3,
+  "ExportTypeName": "Không xuất kho tài sản",
+  "ExportPriority": 3,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 0
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rnijc0">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1oxtdtg">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lxqv7v">
+        <inputEntry id="UnaryTests_1624wwg">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0za3emj">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14tiwxt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m8tirz">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nr3tks">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18ogyr0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pl6wjv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wd46mn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f1voi5">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1truszp">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01c0ikh">
+          <text>{
+  "ExportType": 3,
+  "ExportTypeName": "Không xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": false,
+  "IsEnable": false,
+  "IsClose": 0
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_003qbr0">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0akdhk9">
+          <text>"Tài sản không thuộc kho của PGD đang thực hiện đóng HĐCC. Tài sản hiện đang ở kho " + AssetShopName</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06trzel">
+        <inputEntry id="UnaryTests_0apwq8i">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n8q3fi">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iiayfo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07t8p5n">
+          <text>"01"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14bdooi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vf18un">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bpyjo1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l1k041">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11bl4is">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ic730t">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03k1bc3">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": false,
+  "IsEnable": false,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d65qka">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r032wc">
+          <text>"Tài sản không thuộc kho của PGD đang thực hiện đóng HĐCC. Tài sản hiện đang ở kho " + AssetShopName</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jp3l6t">
+        <inputEntry id="UnaryTests_1mj4efm">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1std7tt">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e31mdn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nc6epb">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01qj83g">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17zz6zw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m3ie9n">
+          <text>"CL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09rsz8z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13xvkqp">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kqyktm">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02nr5zo">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1514fus">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00ormtr">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0d0qrx4">
+        <inputEntry id="UnaryTests_15tc6u8">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uhrtjs">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k4jp07">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jfn110">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f3si2f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ngn35t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_163tx4o">
+          <text>"Disbursement"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1visynt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s7o9ty">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_008l0j6">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14xvjrt">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1m3z2kp">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0395hg2">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1peyovb">
+        <inputEntry id="UnaryTests_1792p1v">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s4ghv2">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04aoajw">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03mzz3v">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eio45m">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cirhlc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m16w39">
+          <text>"Disbursement"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vjiffi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09h2ghq">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ilurq">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02yecu2">
+          <text>{
+  "ExportType": 2,
+  "ExportTypeName": "Xuất kho sau",
+  "ExportPriority": 2,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nw2esh">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uptiet">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wr5ffi">
+        <inputEntry id="UnaryTests_0pic5hh">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_005twoa">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_113bs44">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ggwmw">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zqpw8h">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dok9n0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15clnwf">
+          <text>"Disbursement"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wzzjbi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fzlby3">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05vnzx6">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07tw5zd">
+          <text>{
+  "ExportType": 2,
+  "ExportTypeName": "Xuất kho sau",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1l4wuxe">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04oqgfc">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0t2fpyi">
+        <inputEntry id="UnaryTests_1m0uev7">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qrl4ij">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mjlz8x">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s2kpae">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19y8p7o">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0okxjew">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fuex1p">
+          <text>"CL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sax6hc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_161dvzz">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ii45np">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fl9cyu">
+          <text>{
+  "ExportType": 3,
+  "ExportTypeName": "Không xuất kho tài sản",
+  "ExportPriority": 2,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 0
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m18tmc">
+          <text>false</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1b67gcc">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r8n7a8">
+        <inputEntry id="UnaryTests_0vaggdr">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ydobg3">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n3qurs">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ah4oj4">
+          <text>"05"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e7adco">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07osqrd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gys0sy">
+          <text>"CL"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sh4onu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e7ofe8">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sqtuv9">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06fysvg">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00tlgq6">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0avw5gj">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1md5g1g">
+        <inputEntry id="UnaryTests_1fb19i7">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pxcs9d">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rvflih">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pawvk7">
+          <text>"07"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ognme9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12d1wwn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07ja6o0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fwr5wz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jyg8y4">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hiu616">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vtv1t1">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nk0gnz">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0t08tk3">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bqz0q5">
+        <inputEntry id="UnaryTests_0u4sz1b">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nqg2zc">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14vxf8l">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hge2sw">
+          <text>"07"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15nc97w">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_106ybtz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1231qzy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u2svvt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lp0d0s">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lx2p1l">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07zqtqh">
+          <text>{
+  "ExportType": 2,
+  "ExportTypeName": "Xuất kho sau",
+  "ExportPriority": 2,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1feibvw">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0upk5ag">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l9ru8s">
+        <inputEntry id="UnaryTests_0teid4m">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lllorg">
+          <text>not("02")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c650rf">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oiayp3">
+          <text>"07"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06qcses">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06wb2hr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_038ya0f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ypn7mp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04evhc2">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cx53dv">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1li3ns3">
+          <text>{
+  "ExportType": 2,
+  "ExportTypeName": "Xuất kho sau",
+  "ExportPriority": 1,
+  "IsShow": true,
+  "IsEnable": true,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1u5pko2">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15tos1i">
+          <text>"OK"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rb4v5a">
+        <inputEntry id="UnaryTests_1rru4xy">
+          <text>"DONG"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t896rp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vqkr42">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s5zo7g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w9844y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wxcjbk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hyk8q5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a33a9s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00zqjn6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f5drgy">
+          <text>not (1)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k3knvt">
+          <text>{
+  "ExportType": 1,
+  "ExportTypeName": "Xuất kho tài sản",
+  "ExportPriority": 1,
+  "IsShow": false,
+  "IsEnable": false,
+  "IsClose": 1
+}</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10gssfz">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0v4veuk">
+          <text>"Trạng thái của tài sản trong kho không thỏa điều kiện thực hiện đóng hợp đồng"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03dko5y">
+        <inputEntry id="UnaryTests_00x2169">
+          <text>not ("DONG")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b7ta73">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04tjrzn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xxch0y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kbwy47">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1edfzby">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f73dyx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e4v3x1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_120r7h1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14f4c42">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04uzur5">
+          <text>[]</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0n8v1wh">
+          <text>null</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gicxjq">
+          <text>null</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="IsSameShop" name="IsSameShop">
+    <decisionTable id="DecisionTable_06ddgwh">
+      <input id="InputClause_13wcpmy" label="ShopCode của TS trong kho">
+        <inputExpression id="LiteralExpression_0hyxboj" typeRef="string">
+          <text>AssetShopCode</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0afm99k" label="OfficeCodeGDHD">
+        <inputExpression id="LiteralExpression_1gaytk6" typeRef="string">
+          <text>OfficeCodeGDHD</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_09u722v" label="IsSameShop" name="IsSameShop" typeRef="boolean" biodi:width="789" />
+      <rule id="DecisionRule_0tyezbk">
+        <inputEntry id="UnaryTests_1u0ck8p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1olr8e7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kzl1ga">
+          <text>if AssetShopCode= null or OfficeCodeGDHD= null then false else if AssetShopCode= OfficeCodeGDHD then true else false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="VerifyExportType">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17g6j54" dmnElementRef="IsSameShop">
+        <dc:Bounds height="80" width="180" x="320" y="230" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04gdga2" dmnElementRef="InformationRequirement_0ni88n6">
+        <di:waypoint x="410" y="230" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

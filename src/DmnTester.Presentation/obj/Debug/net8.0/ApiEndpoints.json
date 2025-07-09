@@ -1,0 +1,108 @@
+[
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "BatchTest",
+    "RelativePath": "api/dmn/batch-test",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.BatchTestRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GetConfigs",
+    "RelativePath": "api/dmn/configs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GetConfig",
+    "RelativePath": "api/dmn/configs/{decisionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "decisionId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "ConvertGenerateToBatch",
+    "RelativePath": "api/dmn/convert-generate-to-batch",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.ConvertGenerateToBatchRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "Evaluate",
+    "RelativePath": "api/dmn/evaluate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.EvaluateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GenerateTestFromDmn",
+    "RelativePath": "api/dmn/generate-test",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.GenerateTestRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "Test",
+    "RelativePath": "api/dmn/test",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.TestRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

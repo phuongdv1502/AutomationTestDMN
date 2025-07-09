@@ -1,0 +1,146 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <mat-icon>psychology</mat-icon>
+  <span>DMN Tester UI</span>
+</mat-toolbar>
+
+<!-- Loading Overlay -->
+<div *ngIf="loading" class="loading-overlay">
+  <mat-card class="loading-card">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Đang xử lý...</p>
+  </mat-card>
+</div>
+
+<!-- Error Display -->
+<div *ngIf="error" class="error-container">
+  <mat-card class="error-card">
+    <div class="error-header">
+      <mat-icon class="error-icon">warning</mat-icon>
+      <span class="error-title">Lỗi</span>
+      <button mat-icon-button (click)="clearError()" class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <p class="error-message">{{ error }}</p>
+  </mat-card>
+</div>
+
+<!-- Timeout Warning Display -->
+<div *ngIf="timeoutWarning" class="warning-container">
+  <mat-card class="warning-card">
+    <div class="warning-header">
+      <mat-icon class="warning-icon">lightbulb</mat-icon>
+      <span class="warning-title">Gợi ý</span>
+      <button mat-icon-button (click)="clearError()" class="close-button">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <p class="warning-message">{{ timeoutWarning }}</p>
+  </mat-card>
+</div>
+
+<div class="dmn-tester-container">
+  <mat-card class="mt-4">
+    <h2><mat-icon>auto_awesome</mat-icon> Generate Tests from DMN</h2>
+    <form [formGroup]="generateForm" (ngSubmit)="generateTests()" class="form-section">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>DMN File Name</mat-label>
+        <input matInput formControlName="dmnFileName" placeholder="dinnerDecisions.dmn">
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!generateForm.valid || loading">
+        <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+        <mat-icon *ngIf="!loading">play_arrow</mat-icon>
+        <span *ngIf="!loading">Generate Tests</span>
+      </button>
+    </form>
+    <div *ngIf="generatedTests.length > 0" style="margin-top: 20px;">
+      <h3><mat-icon>list</mat-icon> Generated Tests ({{ generatedTests.length }})</h3>
+      <mat-card class="json-viewer">
+        <pre>{{ generatedTests | json }}</pre>
+      </mat-card>
+      <button mat-raised-button color="accent" (click)="convertToBatch()" style="margin-top: 10px;">
+        <mat-icon>transform</mat-icon>
+        Convert to Batch Test
+      </button>
+    </div>
+  </mat-card>
+
+  <mat-card class="mt-4">
+    <h2><mat-icon>batch_prediction</mat-icon> Run Batch Tests</h2>
+    <form [formGroup]="batchForm" (ngSubmit)="runBatchTest()" class="form-section">
+      <mat-form-field appearance="outline" class="w-100" floatLabel="always">
+        <mat-label>Batch Test Data (JSON)</mat-label>
+        <textarea matInput formControlName="batchData" rows="10" placeholder='{"items": [{"dmnFileName": "dinnerDecisions.dmn", "decisionId": "beverages", "testCases": [{"inputs": {"desiredDish": "Stew", "guestsWithChildren": "true"}, "expectedOutputs": {"beverages": "Guiness"}}]}]}'></textarea>
+        <mat-icon matSuffix>code</mat-icon>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!batchForm.valid || loading">
+        <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+        <mat-icon *ngIf="!loading">play_circle</mat-icon>
+        <span *ngIf="!loading">Run Batch Test</span>
+      </button>
+    </form>
+    <div *ngIf="batchResults.length > 0" style="margin-top: 20px;">
+      <h3><mat-icon>assessment</mat-icon> Batch Test Results</h3>
+      <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+        <button mat-stroked-button color="primary" (click)="prevBatchPage()" [disabled]="batchPage === 1">
+          <mat-icon>chevron_left</mat-icon>
+          Prev
+        </button>
+        <span>Page {{ batchPage }} / {{ totalBatchPages() }}</span>
+        <button mat-stroked-button color="primary" (click)="nextBatchPage()" [disabled]="batchPage === totalBatchPages()">
+          Next
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let result of pagedBatchResults()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon>rule</mat-icon>
+              {{ result.decisionId }} ({{ result.dmnFileName }})
+            </mat-panel-title>
+            <mat-panel-description>
+              <span matBadge="{{ getPassCount(result.results) }}" matBadgeColor="primary">
+                <mat-icon>check_circle</mat-icon>
+                PASS
+              </span>
+              <span matBadge="{{ getFailCount(result.results) }}" matBadgeColor="warn" style="margin-left: 8px;">
+                <mat-icon>error</mat-icon>
+                FAIL
+              </span>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+            <button mat-stroked-button color="accent" (click)="prevTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === 1">
+              <mat-icon>navigate_before</mat-icon>
+              Prev
+            </button>
+            <span>Page {{ batchTestPages[result.decisionId] || 1 }} / {{ totalTestPages(result) }}</span>
+            <button mat-stroked-button color="accent" (click)="nextTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === totalTestPages(result)">
+              Next
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+          </div>
+          <div *ngFor="let testResult of pagedTestResults(result)" class="test-case-block">
+            <mat-card class="test-case-header" [ngClass]="testResult.pass ? 'pass' : 'fail'">
+              <strong>{{ testResult.name }}</strong>
+              <span class="badge" [ngClass]="testResult.pass ? 'badge-success' : 'badge-danger'">
+                <mat-icon>{{ testResult.pass ? 'check_circle' : 'cancel' }}</mat-icon>
+                {{ testResult.pass ? 'PASS' : 'FAIL' }}
+              </span>
+            </mat-card>
+            <mat-card class="test-case-json-block">
+              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>input</mat-icon> Inputs:</span> <span class="test-case-json">{{ testResult.inputs | json }}</span></div>
+              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>target</mat-icon> Expected:</span> <span class="test-case-json">{{ testResult.expectedOutputs | json }}</span></div>
+              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>fact_check</mat-icon> Actual:</span> <span class="test-case-json">{{ testResult.actualOutputs | json }}</span></div>
+              <div class="test-case-json-row" *ngIf="getDiffKeys(testResult.diff).length > 0">
+                <span class="test-case-label"><mat-icon>compare_arrows</mat-icon> Diff:</span> <span class="test-case-json">{{ testResult.diff | json }}</span>
+              </div>
+            </mat-card>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-card>
+</div> 
