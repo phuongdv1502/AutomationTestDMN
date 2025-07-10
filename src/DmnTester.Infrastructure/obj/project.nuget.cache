@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hSRrqTj0Wps=",
+  "dgSpecHash": "SPcK8pVGw0o=",
   "success": true,
-  "projectFilePath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj",
+  "projectFilePath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\PHUONGDV\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\PHUONGDV\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
+    "C:\\Users\\FFintech\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\FFintech\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
   "logs": [
     {

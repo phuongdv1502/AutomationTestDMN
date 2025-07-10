@@ -717,25 +717,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PHUONGDV\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\FFintech\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\DmnTester.Presentation.csproj",
+      "projectUniqueName": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\DmnTester.Presentation.csproj",
       "projectName": "DmnTester.Presentation",
-      "projectPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\DmnTester.Presentation.csproj",
-      "packagesPath": "C:\\Users\\PHUONGDV\\.nuget\\packages\\",
-      "outputPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\obj\\",
+      "projectPath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\DmnTester.Presentation.csproj",
+      "packagesPath": "C:\\Users\\FFintech\\.nuget\\packages\\",
+      "outputPath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\PHUONGDV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\FFintech\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -744,17 +742,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\DmnTester.Application.csproj": {
-              "projectPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\DmnTester.Application.csproj"
+            "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\DmnTester.Application.csproj": {
+              "projectPath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\DmnTester.Application.csproj"
             },
-            "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj": {
-              "projectPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj"
+            "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj": {
+              "projectPath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj"
             }
           }
         }
@@ -807,7 +806,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -39,7 +39,7 @@ public class DmnTestGenerator : IDmnTestGenerator
             Data = new DmnConfigData
             {
                 Inputs = ExtractInputs(xmlDoc, nsmgr, decisionId),
-                TestCases = GenerateTestCases(xmlDoc, nsmgr, decisionId, inputKeys, outputKeys)
+                TestCases = GenerateCombinationTestCases(xmlDoc, nsmgr, decisionId, inputKeys, outputKeys)
             }
         };
 
