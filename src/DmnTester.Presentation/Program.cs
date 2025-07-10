@@ -52,4 +52,21 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
+// Thêm middleware bắt exception toàn cục
+app.Use(async (context, next) =>
+{
+    try
+    {
+        await next();
+    }
+    catch (Exception ex)
+    {
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/json";
+        var error = new { error = ex.Message, detail = ex.InnerException?.Message };
+        await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(error));
+        // Có thể log ra file hoặc hệ thống log ở đây nếu muốn
+    }
+});
+
 app.Run(); 

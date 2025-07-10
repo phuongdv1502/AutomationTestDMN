@@ -149,7 +149,7 @@ public class DmnEngine : IDmnEngine
             
             foreach (var rule in rules)
             {
-                cts.Token.ThrowIfCancellationRequested();
+                //cts.Token.ThrowIfCancellationRequested();
                 
                 var isMatch = EvaluateRule(rule, inputs);
                 Console.WriteLine($"Rule {rule.Attribute("id")?.Value}: match = {isMatch}");
@@ -220,7 +220,7 @@ public class DmnEngine : IDmnEngine
                 IsSuccess = true
             };
         }
-        catch (OperationCanceledException)
+        catch (OperationCanceledException ex)
         {
             return new DmnEvalResult
             {

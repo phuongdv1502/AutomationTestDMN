@@ -282,6 +282,38 @@ h3 {
   color: #c62828;
 }
 
+.badge-number {
+  display: inline-block;
+  min-width: 22px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 0;
+  margin-right: 2px;
+  background: #e0e0e0;
+  color: #333;
+}
+.pass-badge {
+  background: #1976d2;
+  color: #fff;
+}
+.fail-badge {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.mat-badge-content {
+  font-size: 14px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+  top: 8px !important;
+  right: 8px !important;
+}
+
 // Button improvements
 button[mat-raised-button], button[mat-stroked-button] {
   mat-icon {

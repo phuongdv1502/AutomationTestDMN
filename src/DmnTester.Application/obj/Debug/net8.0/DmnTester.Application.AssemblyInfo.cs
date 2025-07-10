@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DmnTester.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ff0121562098331e295243255c84b03658d81d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a39e2f2be310dcad0a2b7d40db50c13cdaa4461d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DmnTester.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DmnTester.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

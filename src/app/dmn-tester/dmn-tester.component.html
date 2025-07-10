@@ -101,13 +101,15 @@
               {{ result.decisionId }} ({{ result.dmnFileName }})
             </mat-panel-title>
             <mat-panel-description>
-              <span matBadge="{{ getPassCount(result.results) }}" matBadgeColor="primary">
-                <mat-icon>check_circle</mat-icon>
-                PASS
+              <span style="display: inline-flex; align-items: center; margin-right: 32px;">
+                <mat-icon color="primary">check_circle</mat-icon>
+                <span class="badge-number pass-badge">{{ getPassCount(result.results) }}</span>
+                <span style="margin-left: 4px;">PASS</span>
               </span>
-              <span matBadge="{{ getFailCount(result.results) }}" matBadgeColor="warn" style="margin-left: 8px;">
-                <mat-icon>error</mat-icon>
-                FAIL
+              <span style="display: inline-flex; align-items: center;">
+                <mat-icon color="warn">error</mat-icon>
+                <span class="badge-number fail-badge">{{ getFailCount(result.results) }}</span>
+                <span style="margin-left: 4px;">FAIL</span>
               </span>
             </mat-panel-description>
           </mat-expansion-panel-header>

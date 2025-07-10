@@ -47,7 +47,7 @@
       </input>
       <input id="InputClause_0ha2pri" label="Số lượng GNN đang vay">
         <inputExpression id="LiteralExpression_1otievt" typeRef="integer">
-          <text> NumberOfLoan</text>
+          <text>NumberOfLoan</text>
         </inputExpression>
       </input>
       <input id="InputClause_0ho05ih" label="Trạng thái tài sản trong kho" biodi:width="201">

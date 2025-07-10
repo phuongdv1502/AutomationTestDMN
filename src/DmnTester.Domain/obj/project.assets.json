@@ -8,23 +8,25 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\FFintech\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\PHUONGDV\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Domain\\DmnTester.Domain.csproj",
+      "projectUniqueName": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Domain\\DmnTester.Domain.csproj",
       "projectName": "DmnTester.Domain",
-      "projectPath": "d:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Domain\\DmnTester.Domain.csproj",
-      "packagesPath": "C:\\Users\\FFintech\\.nuget\\packages\\",
-      "outputPath": "d:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Domain\\obj\\",
+      "projectPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Domain\\DmnTester.Domain.csproj",
+      "packagesPath": "C:\\Users\\PHUONGDV\\.nuget\\packages\\",
+      "outputPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\FFintech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PHUONGDV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,7 +35,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -73,7 +74,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

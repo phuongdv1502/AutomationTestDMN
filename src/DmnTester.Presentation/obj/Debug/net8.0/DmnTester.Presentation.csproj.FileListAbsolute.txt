@@ -138,3 +138,4 @@ D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Presentation\obj\D
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Presentation\obj\Debug\net8.0\DmnTester.Presentation.pdb
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Presentation\obj\Debug\net8.0\DmnTester.Presentation.genruntimeconfig.cache
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Presentation\obj\Debug\net8.0\ref\DmnTester.Presentation.dll
+F:\Project\Mode-Tester\Mode-Tester\src\DmnTester.Presentation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

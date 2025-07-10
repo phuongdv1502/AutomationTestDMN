@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DmnTester.Presentation.Models;
 using DmnTester.Application.UseCases;
-using DmnTester.Infrastructure.Services;
-using DmnTester.Domain.Interfaces;
 
 namespace DmnTester.Presentation.Controllers;
 
@@ -163,7 +161,6 @@ public class DmnController : ControllerBase
             foreach (var item in request.Items)
             {
                 cts.Token.ThrowIfCancellationRequested();
-                
                 var dmnBasePath = _configuration["DmnFilesPath"] ?? "dmn";
                 var absoluteDmnPath = Path.Combine(Directory.GetCurrentDirectory(), dmnBasePath);
                 var dmnPath = Path.Combine(absoluteDmnPath, item.DmnFileName);
@@ -171,22 +168,8 @@ public class DmnController : ControllerBase
                 foreach (var testCase in item.TestCases)
                 {
                     cts.Token.ThrowIfCancellationRequested();
-                    
-                    if(!testCase.Inputs.Any())
-                        Console.WriteLine($"[DEBUG] BatchTest - TestCase: {testCase.Name}");
-                    // Debug log để xem inputs thực tế
-                    Console.WriteLine($"[DEBUG] BatchTest - TestCase: {testCase.Name}");
-                    Console.WriteLine($"[DEBUG] BatchTest - Inputs: {System.Text.Json.JsonSerializer.Serialize(testCase.Inputs)}");
-                    Console.WriteLine($"[DEBUG] BatchTest - Inputs Count: {testCase.Inputs.Count}");
-                    
                     var evalResult = await _evaluateDmnUseCase.ExecuteAsync(dmnPath, item.DecisionId, testCase.Inputs);
                     var pass = CompareOutputs(evalResult.Outputs, testCase.ExpectedOutputs);
-                    
-                    // Debug log để xem comparison
-                    Console.WriteLine($"[DEBUG] CompareOutputs - TestCase: {testCase.Name}");
-                    Console.WriteLine($"[DEBUG] Expected: {System.Text.Json.JsonSerializer.Serialize(testCase.ExpectedOutputs)}");
-                    Console.WriteLine($"[DEBUG] Actual: {System.Text.Json.JsonSerializer.Serialize(evalResult.Outputs)}");
-                    Console.WriteLine($"[DEBUG] Pass: {pass}");
                     var resultItem = new
                     {
                         name = testCase.Name,
@@ -196,12 +179,6 @@ public class DmnController : ControllerBase
                         diff = GetDiff(evalResult.Outputs, testCase.ExpectedOutputs),
                         inputs = testCase.Inputs
                     };
-                    
-                    // Debug log để xem response thực tế
-                    Console.WriteLine($"[DEBUG] Response - TestCase: {testCase.Name}");
-                    Console.WriteLine($"[DEBUG] Response - Inputs: {System.Text.Json.JsonSerializer.Serialize(resultItem.inputs)}");
-                    Console.WriteLine($"[DEBUG] Response - Inputs Count: {resultItem.inputs.Count}");
-                    
                     results.Add(resultItem);
                 }
                 allResults.Add(new

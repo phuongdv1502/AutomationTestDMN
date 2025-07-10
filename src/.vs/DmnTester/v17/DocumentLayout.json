@@ -1,81 +1,64 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\",
+  "WorkspaceRootPath": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.winforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|solutionrelative:dmntester.winforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.winforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|solutionrelative:dmntester.winforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.winforms\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|solutionrelative:dmntester.winforms\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.winforms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|solutionrelative:dmntester.winforms\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE199BBD-E040-4845-9F97-EB4ACE7A0CC9}|DmnTester.WinForms\\DmnTester.WinForms.csproj|solutionrelative:dmntester.winforms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\controllers\\dmncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\controllers\\dmncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B00F7E6E-F9F6-43BC-A2A8-C918606E9B2F}|DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.infrastructure\\services\\dmnengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B00F7E6E-F9F6-43BC-A2A8-C918606E9B2F}|DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj|solutionrelative:dmntester.infrastructure\\services\\dmnengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.application\\usecases\\evaluatedmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|solutionrelative:dmntester.application\\usecases\\evaluatedmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\dmn\\verifyxuatkho.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\verifyxuatkho.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\models\\convertgeneratetobatchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\models\\convertgeneratetobatchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.application\\usecases\\generatetestfromdmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|solutionrelative:dmntester.application\\usecases\\generatetestfromdmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\dmn\\tem-code_test.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\tem-code_test.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\controllers\\dmncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\controllers\\dmncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B00F7E6E-F9F6-43BC-A2A8-C918606E9B2F}|DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.infrastructure\\services\\dmnengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B00F7E6E-F9F6-43BC-A2A8-C918606E9B2F}|DmnTester.Infrastructure\\DmnTester.Infrastructure.csproj|solutionrelative:dmntester.infrastructure\\services\\dmnengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.application\\usecases\\evaluatedmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|solutionrelative:dmntester.application\\usecases\\evaluatedmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\dmn\\verifyxuatkho.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\verifyxuatkho.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\models\\convertgeneratetobatchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\models\\convertgeneratetobatchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.application\\usecases\\generatetestfromdmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2880F87B-FFFF-4640-B1B7-AF27D0E795EB}|DmnTester.Application\\DmnTester.Application.csproj|solutionrelative:dmntester.application\\usecases\\generatetestfromdmnusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\dmn\\tem-code_test.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\tem-code_test.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\dmn\\inputvarextractiontestdiagram.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\dmn\\inputvarextractiontestdiagram.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\inputvarextractiontestdiagram.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\dmn\\dinnerdecisions.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|f:\\project\\mode-tester\\mode-tester\\src\\dmntester.presentation\\dmn\\dinnerdecisions.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\dmn\\dinnerdecisions.dmn||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|d:\\work\\codecommit\\autogendmn\\automationtestdmn\\src\\dmntester.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B991C9C7-EB61-438A-9E08-80BAFDCC5E7F}|DmnTester.Presentation\\DmnTester.Presentation.csproj|solutionrelative:dmntester.presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -85,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 42,
+          "SelectedChildIndex": 41,
           "Children": [
             {
               "$type": "Bookmark",
@@ -185,10 +168,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -249,86 +228,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainForm.resx",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.resx",
-              "RelativeDocumentMoniker": "DmnTester.WinForms\\MainForm.resx",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.resx",
-              "RelativeToolTip": "DmnTester.WinForms\\MainForm.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-07-10T11:42:27.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "DmnTester.WinForms\\MainForm.Designer.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.Designer.cs",
-              "RelativeToolTip": "DmnTester.WinForms\\MainForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T11:42:26.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.cs",
-              "RelativeDocumentMoniker": "DmnTester.WinForms\\MainForm.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.cs [Design]",
-              "RelativeToolTip": "DmnTester.WinForms\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T11:29:45.935Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\Program.cs",
-              "RelativeDocumentMoniker": "DmnTester.WinForms\\Program.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\Program.cs",
-              "RelativeToolTip": "DmnTester.WinForms\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T11:24:13.064Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.cs",
-              "RelativeDocumentMoniker": "DmnTester.WinForms\\MainForm.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.WinForms\\MainForm.cs",
-              "RelativeToolTip": "DmnTester.WinForms\\MainForm.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAowC0AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T11:22:42.762Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DmnEngine.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Infrastructure\\Services\\DmnEngine.cs",
-              "RelativeDocumentMoniker": "DmnTester.Infrastructure\\Services\\DmnEngine.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Infrastructure\\Services\\DmnEngine.cs",
-              "RelativeToolTip": "DmnTester.Infrastructure\\Services\\DmnEngine.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAewF0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T10:44:06.459Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "tem-code_test.dmn",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\tem-code_test.dmn",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\tem-code_test.dmn",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\dmn\\tem-code_test.dmn",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\tem-code_test.dmn",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\tem-code_test.dmn",
               "RelativeToolTip": "DmnTester.Presentation\\dmn\\tem-code_test.dmn",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
@@ -336,11 +240,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "dinnerDecisions.dmn",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
               "RelativeToolTip": "DmnTester.Presentation\\dmn\\dinnerDecisions.dmn",
               "ViewState": "AgIAAEoAAAAAAAAAAAApwGcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
@@ -348,35 +252,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\appsettings.json",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\appsettings.json",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\appsettings.json",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\appsettings.json",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\appsettings.json",
               "RelativeToolTip": "DmnTester.Presentation\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-08T03:04:14.307Z"
+              "WhenOpened": "2025-07-08T03:04:14.307Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Properties\\launchSettings.json",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Properties\\launchSettings.json",
               "RelativeToolTip": "DmnTester.Presentation\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-08T03:03:40.393Z"
+              "WhenOpened": "2025-07-08T03:03:40.393Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Program.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Program.cs",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\Program.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Program.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Program.cs",
               "RelativeToolTip": "DmnTester.Presentation\\Program.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAewDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -384,48 +290,87 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VerifyXuatKho.dmn",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
+              "RelativeDocumentMoniker": "DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
+              "RelativeToolTip": "DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAawDEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-08T10:14:54.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "EvaluateDmnUseCase.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
+              "RelativeDocumentMoniker": "DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
+              "RelativeToolTip": "DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T03:06:27.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "DmnTester.Presentation\\appsettings.Development.json",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\appsettings.Development.json",
+              "RelativeToolTip": "DmnTester.Presentation\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-08T03:04:17.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DmnEngine.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Infrastructure\\Services\\DmnEngine.cs",
+              "RelativeDocumentMoniker": "DmnTester.Infrastructure\\Services\\DmnEngine.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Infrastructure\\Services\\DmnEngine.cs",
+              "RelativeToolTip": "DmnTester.Infrastructure\\Services\\DmnEngine.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAtwBYBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T10:44:06.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DmnController.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Controllers\\DmnController.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Controllers\\DmnController.cs",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\Controllers\\DmnController.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Controllers\\DmnController.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Controllers\\DmnController.cs",
               "RelativeToolTip": "DmnTester.Presentation\\Controllers\\DmnController.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAwwM8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAPoAAAAAAAAAAAAAABYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T03:03:05.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "VerifyXuatKho.dmn",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
-              "RelativeDocumentMoniker": "DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
-              "RelativeToolTip": "DmnTester.Presentation\\dmn\\VerifyXuatKho.dmn",
-              "ViewState": "AgIAAJADAAAAAAAAAAAgwKcDAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-08T10:14:54.865Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "EvaluateDmnUseCase.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
-              "RelativeDocumentMoniker": "DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
-              "RelativeToolTip": "DmnTester.Application\\UseCases\\EvaluateDmnUseCase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T03:06:27.731Z"
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAPkAAAAAAAAAAAArwAkBAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-07-10T15:32:43.345Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ConvertGenerateToBatchRequest.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
               "RelativeToolTip": "DmnTester.Presentation\\Models\\ConvertGenerateToBatchRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -433,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -443,11 +388,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "GenerateTestFromDmnUseCase.cs",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
               "RelativeDocumentMoniker": "DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
               "RelativeToolTip": "DmnTester.Application\\UseCases\\GenerateTestFromDmnUseCase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -455,27 +400,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "InputVarExtractionTestDiagram.dmn",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
+              "DocumentMoniker": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
               "RelativeDocumentMoniker": "DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
+              "ToolTip": "F:\\Project\\Mode-Tester\\Mode-Tester\\src\\DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
               "RelativeToolTip": "DmnTester.Presentation\\dmn\\InputVarExtractionTestDiagram.dmn",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-07-08T08:25:13.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "DmnTester.Presentation\\appsettings.Development.json",
-              "ToolTip": "D:\\Work\\CodeCommit\\AutoGenDmn\\AutomationTestDMN\\src\\DmnTester.Presentation\\appsettings.Development.json",
-              "RelativeToolTip": "DmnTester.Presentation\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-08T03:04:17.685Z"
             }
           ]
         }

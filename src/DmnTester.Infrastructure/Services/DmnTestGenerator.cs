@@ -329,14 +329,12 @@ public class DmnTestGenerator : IDmnTestGenerator
     private List<DmnTestCase> GenerateCombinationTestCases(XmlDocument xmlDoc, XmlNamespaceManager nsmgr, string decisionId, List<string> inputKeys, List<string> outputKeys)
     {
         var testCases = new List<DmnTestCase>();
-        
         // Extract all unique values for each input
         var inputValueSets = new Dictionary<string, HashSet<string>>();
         foreach (var inputKey in inputKeys)
         {
             inputValueSets[inputKey] = new HashSet<string>();
         }
-        
         var rules = xmlDoc.SelectNodes($"//dmn:decision[@id='{decisionId}']/dmn:decisionTable/dmn:rule", nsmgr);
         foreach (XmlNode rule in rules!)
         {
@@ -346,39 +344,68 @@ public class DmnTestGenerator : IDmnTestGenerator
                 var text = inputEntries[i].SelectSingleNode("dmn:text", nsmgr)?.InnerText?.Trim();
                 if (!string.IsNullOrEmpty(text) && text != "\"\"")
                 {
-                    var values = ParseInputValues(text);
-                    foreach (var value in values)
+                    // Sửa: parse điều kiện đặc biệt thành giá trị mẫu hợp lệ
+                    if (text.StartsWith("not(") && text.EndsWith(")"))
                     {
-                        inputValueSets[inputKeys[i]].Add(value);
+                        var notValue = text.Substring(4, text.Length - 5).Replace("\"", "").Trim();
+                        // Sinh giá trị mẫu khác notValue
+                        inputValueSets[inputKeys[i]].Add("default");
+                    }
+                    else if (text.StartsWith(">"))
+                    {
+                        // >1 => sinh giá trị 2
+                        inputValueSets[inputKeys[i]].Add("2");
+                    }
+                    else if (text.StartsWith("<"))
+                    {
+                        // <5 => sinh giá trị 4
+                        inputValueSets[inputKeys[i]].Add("4");
+                    }
+                    else if (text.Equals("true", StringComparison.OrdinalIgnoreCase))
+                    {
+                        inputValueSets[inputKeys[i]].Add("true");
+                    }
+                    else if (text.Equals("false", StringComparison.OrdinalIgnoreCase))
+                    {
+                        inputValueSets[inputKeys[i]].Add("false");
+                    }
+                    else
+                    {
+                        var values = ParseInputValues(text);
+                        foreach (var value in values)
+                        {
+                            inputValueSets[inputKeys[i]].Add(value);
+                        }
                     }
                 }
             }
         }
-        
-        // Add common values for boolean inputs
-        if (inputValueSets.ContainsKey("guestsWithChildren"))
+        // Nếu input nào không có giá trị, thêm giá trị mặc định
+        foreach (var key in inputKeys)
         {
-            inputValueSets["guestsWithChildren"].Add("true");
-            inputValueSets["guestsWithChildren"].Add("false");
-        }
-        
-        // Generate meaningful combination test cases
-        var meaningfulCombinations = GenerateMeaningfulCombinations(inputValueSets, inputKeys);
-        foreach (var combination in meaningfulCombinations)
-        {
-            // Only create test case if all required inputs are present
-            if (combination.Count == inputKeys.Count)
+            if (inputValueSets[key].Count == 0)
             {
-                var testCase = new DmnTestCase
-                {
-                    Name = $"Combination Test - {string.Join(",", combination.Select(kv => $"{kv.Key}={kv.Value}"))}",
-                    Inputs = combination,
-                    ExpectedOutputs = new Dictionary<string, object>() // Will be evaluated at runtime
-                };
-                testCases.Add(testCase);
+                inputValueSets[key].Add("default");
             }
         }
-        
+        // Sinh exhaustive combination cho mọi input
+        var allInputValues = inputKeys.Select(k => inputValueSets[k].ToList()).ToList();
+        var allCombinations = GenerateCombinations(allInputValues);
+        foreach (var combination in allCombinations)
+        {
+            var inputDict = new Dictionary<string, object>();
+            for (int i = 0; i < inputKeys.Count; i++)
+            {
+                inputDict[inputKeys[i]] = combination[i];
+            }
+            var testCase = new DmnTestCase
+            {
+                Name = $"Exhaustive Combination - {string.Join(",", inputDict.Select(kv => $"{kv.Key}={kv.Value}"))}",
+                Inputs = inputDict,
+                ExpectedOutputs = new Dictionary<string, object>() // Sẽ được evaluate runtime
+            };
+            testCases.Add(testCase);
+        }
         return testCases;
     }
 
