@@ -241,7 +241,7 @@ public class DmnTestGenerator : IDmnTestGenerator
             };
             
             // DEBUG: Log test case details
-            Console.WriteLine($"[DEBUG] Generated TestCase: {testCase.Name}");
+            Console.WriteLine($"[DEBUG] GeneratedTestCase: {testCase.Name}");
             Console.WriteLine($"[DEBUG] Inputs count: {inputDict.Count}");
             Console.WriteLine($"[DEBUG] Inputs content: {System.Text.Json.JsonSerializer.Serialize(inputDict)}");
             Console.WriteLine($"[DEBUG] ExpectedOutputs: {System.Text.Json.JsonSerializer.Serialize(testCase.ExpectedOutputs)}");

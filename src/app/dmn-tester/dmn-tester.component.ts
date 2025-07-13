@@ -632,4 +632,8 @@ export class DmnTesterComponent implements OnInit {
     if (chunk.isLastChunk) return 'text-success';
     return 'text-primary';
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 } 
