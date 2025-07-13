@@ -34,3 +34,14 @@ D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Domain\obj\Debug\n
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Domain\obj\Debug\net8.0\refint\DmnTester.Domain.dll
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.pdb
 D:\Work\CodeCommit\AutoGenDmn\AutomationTestDMN\src\DmnTester.Domain\obj\Debug\net8.0\ref\DmnTester.Domain.dll
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\bin\Debug\net8.0\DmnTester.Domain.deps.json
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\bin\Debug\net8.0\DmnTester.Domain.dll
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\bin\Debug\net8.0\DmnTester.Domain.pdb
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.AssemblyInfoInputs.cache
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.AssemblyInfo.cs
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.csproj.CoreCompileInputs.cache
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.dll
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\refint\DmnTester.Domain.dll
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\DmnTester.Domain.pdb
+F:\Project\Mode-Tester\BE-Modeler\DmnTester.Domain\obj\Debug\net8.0\ref\DmnTester.Domain.dll

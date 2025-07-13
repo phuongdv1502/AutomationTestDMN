@@ -3,11 +3,275 @@
   <span>DMN Tester UI</span>
 </mat-toolbar>
 
+<!-- Tab Navigation -->
+<mat-tab-group class="mt-4" (selectedTabChange)="onTabChange($event)">
+  <mat-tab label="Generate Tests">
+    <div class="tab-content">
+      <!-- DÁN TOÀN BỘ CODE NỘI DUNG TAB 1 Ở ĐÂY -->
+      <mat-card class="mt-4">
+        <h2><mat-icon>auto_awesome</mat-icon> Generate Tests from DMN</h2>
+        <form [formGroup]="generateForm" (ngSubmit)="generateTests()" class="form-section">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>DMN File Name</mat-label>
+            <input matInput formControlName="dmnFileName" placeholder="dinnerDecisions.dmn" (blur)="analyzeFile()">
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field>
+          
+          <!-- File Analysis Info -->
+          <div *ngIf="fileAnalysis" class="file-analysis-card">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <mat-icon>analytics</mat-icon>
+                  File analysis: {{ fileAnalysis.fileName }}
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="analysis-grid">
+                  <div class="analysis-item">
+                    <span class="label">Size:</span>
+                    <span class="value">{{ fileAnalysis.fileSize | fileSize }}</span>
+                  </div>
+                  <div class="analysis-item">
+                    <span class="label">Line count:</span>
+                    <span class="value">{{ fileAnalysis.lineCount }}</span>
+                  </div>
+                  <div class="analysis-item">
+                    <span class="label">Rule count:</span>
+                    <span class="value">{{ fileAnalysis.ruleCount }}</span>
+                  </div>
+                  <div class="analysis-item">
+                    <span class="label">Decision count:</span>
+                    <span class="value">{{ fileAnalysis.decisionCount }}</span>
+                  </div>
+                  <div class="analysis-item">
+                    <span class="label">Complexity:</span>
+                    <span class="value" [ngClass]="'complexity-' + fileAnalysis.complexity.toLowerCase()">
+                      {{ fileAnalysis.complexity }}
+                    </span>
+                  </div>
+                  <div class="analysis-item">
+                    <span class="label">Estimated test cases:</span>
+                    <span class="value">{{ fileAnalysis.estimatedTestCases }}</span>
+                  </div>
+                </div>
+                
+                <div class="recommendation" [ngClass]="'recommendation-' + fileAnalysis.complexity.toLowerCase()">
+                  <mat-icon>lightbulb</mat-icon>
+                  <span>{{ fileAnalysis.recommendation }}</span>
+                </div>
+
+                <div *ngIf="fileAnalysis.isLargeFile" class="large-file-note">
+                  <mat-icon>info</mat-icon>
+                  <span>{{ fileAnalysis.note }}</span>
+                </div>
+
+                <div *ngIf="fileAnalysis.decisions.length > 0" class="decisions-list">
+                  <h4>Decision List:</h4>
+                  <div class="decision-item" *ngFor="let decision of fileAnalysis.decisions">
+                    <span class="decision-id">{{ decision.id }}</span>
+                    <span class="decision-name">{{ decision.name }}</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="!generateForm.valid || loading || (fileAnalysis && fileAnalysis.complexity === 'High')">
+            <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+            <mat-icon *ngIf="!loading">play_arrow</mat-icon>
+            <span *ngIf="!loading">Generate Tests</span>
+          </button>
+          
+          <div *ngIf="fileAnalysis && fileAnalysis.complexity === 'High'" class="warning-message">
+            <mat-icon>warning</mat-icon>
+            <span>This file is too large. Please use a smaller file or split the DMN file.</span>
+          </div>
+        </form>
+        <div *ngIf="generatedTests.length > 0" style="margin-top: 20px;">
+          <h3><mat-icon>list</mat-icon> Generated Tests ({{ generateTotal }})</h3>
+          <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+            <button mat-stroked-button color="primary" (click)="prevGeneratePage()" [disabled]="generatePage === 1">
+              <mat-icon>chevron_left</mat-icon>
+              Prev
+            </button>
+            <span>Page {{ generatePage }} / {{ generateTotalPages }}</span>
+            <button mat-stroked-button color="primary" (click)="nextGeneratePage()" [disabled]="generatePage * generatePageSize >= generateTotal">
+              Next
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+            <span>| Page size: {{ generatePageSize }}</span>
+          </div>
+          <mat-card class="json-viewer">
+            <pre>{{ generatedTests | json }}</pre>
+          </mat-card>
+          <button mat-raised-button color="accent" (click)="convertToBatch()" style="margin-top: 10px;">
+            <mat-icon>transform</mat-icon>
+            Convert to Batch Test
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Batch Tests">
+    <div class="tab-content">
+      <!-- DÁN TOÀN BỘ CODE NỘI DUNG TAB 2 Ở ĐÂY -->
+
+      <mat-card class="mt-4">
+        <h2><mat-icon>batch_prediction</mat-icon> Run Batch Tests</h2>
+        <form [formGroup]="batchForm" (ngSubmit)="runBatchTest()" class="form-section">
+          <mat-form-field appearance="outline" class="w-100" floatLabel="always">
+            <mat-label>Batch Test Data (JSON)</mat-label>
+            <textarea matInput formControlName="batchData" rows="10" placeholder='{"items": [{"dmnFileName": "dinnerDecisions.dmn", "decisionId": "beverages", "testCases": [{"inputs": {"desiredDish": "Stew", "guestsWithChildren": "true"}, "expectedOutputs": {"beverages": "Guiness"}}]}]}'></textarea>
+            <mat-icon matSuffix>code</mat-icon>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!batchForm.valid || loading">
+            <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
+            <mat-icon *ngIf="!loading">play_circle</mat-icon>
+            <span *ngIf="!loading">Run Batch Test</span>
+          </button>
+        </form>
+        <div *ngIf="batchResults.length > 0" style="margin-top: 20px;">
+          <h3><mat-icon>assessment</mat-icon> Batch Test Results</h3>
+          <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+            <button mat-stroked-button color="primary" (click)="prevBatchPage()" [disabled]="batchPage === 1">
+              <mat-icon>chevron_left</mat-icon>
+              Prev
+            </button>
+            <span>Page {{ batchPage }} / {{ totalBatchPages() }}</span>
+            <button mat-stroked-button color="primary" (click)="nextBatchPage()" [disabled]="batchPage === totalBatchPages()">
+              Next
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let result of pagedBatchResults()">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>rule</mat-icon>
+                  {{ result.decisionId }} ({{ result.dmnFileName }})
+                </mat-panel-title>
+                <mat-panel-description>
+                  <span style="display: inline-flex; align-items: center; margin-right: 32px;">
+                    <mat-icon color="primary">check_circle</mat-icon>
+                    <span class="badge-number pass-badge">{{ getPassCount(result.results) }}</span>
+                    <span style="margin-left: 4px;">PASS</span>
+                  </span>
+                  <span style="display: inline-flex; align-items: center;">
+                    <mat-icon color="warn">error</mat-icon>
+                    <span class="badge-number fail-badge">{{ getFailCount(result.results) }}</span>
+                    <span style="margin-left: 4px;">FAIL</span>
+                  </span>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                <button mat-stroked-button color="accent" (click)="prevTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === 1">
+                  <mat-icon>navigate_before</mat-icon>
+                  Previous
+                </button>
+                <span>Page {{ batchTestPages[result.decisionId] || 1 }} / {{ totalTestPages(result) }}</span>
+                <button mat-stroked-button color="accent" (click)="nextTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === totalTestPages(result)">
+                  Next
+                  <mat-icon>navigate_next</mat-icon>
+                </button>
+              </div>
+              <div *ngFor="let testResult of pagedTestResults(result)" class="test-case-block">
+                <mat-card class="test-case-header" [ngClass]="testResult.pass ? 'pass' : 'fail'">
+                  <strong>{{ testResult.name }}</strong>
+                  <span class="badge" [ngClass]="testResult.pass ? 'badge-success' : 'badge-danger'">
+                    <mat-icon>{{ testResult.pass ? 'check_circle' : 'cancel' }}</mat-icon>
+                    {{ testResult.pass ? 'PASS' : 'FAIL' }}
+                  </span>
+                </mat-card>
+                <mat-card class="test-case-json-block">
+                  <div class="test-case-json-row"><span class="test-case-label"><mat-icon>input</mat-icon> Inputs:</span> <span class="test-case-json">{{ testResult.inputs | json }}</span></div>
+                  <div class="test-case-json-row"><span class="test-case-label"><mat-icon>target</mat-icon> Expected:</span> <span class="test-case-json">{{ testResult.expectedOutputs | json }}</span></div>
+                  <div class="test-case-json-row"><span class="test-case-label"><mat-icon>fact_check</mat-icon> Actual:</span> <span class="test-case-json">{{ testResult.actualOutputs | json }}</span></div>
+                  <div class="test-case-json-row" *ngIf="getDiffKeys(testResult.diff).length > 0">
+                    <span class="test-case-label"><mat-icon>compare_arrows</mat-icon> Diff:</span> <span class="test-case-json">{{ testResult.diff | json }}</span>
+                  </div>
+                </mat-card>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Decision Management">
+    <div class="tab-content">
+      <!-- DÁN TOÀN BỘ CODE NỘI DUNG TAB 3 Ở ĐÂY -->
+      <mat-card class="mt-4">
+        <h2><mat-icon>visibility</mat-icon> View DMN File</h2>
+        
+        <!-- File Selection -->
+        <div class="file-selection-section">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Select DMN File</mat-label>
+            <mat-select [(ngModel)]="selectedDmnFile" (selectionChange)="onFileSelect()">
+              <mat-option *ngFor="let file of dmnFiles" [value]="file.fileName">
+                {{ file.fileName }} ({{ file.lineCount }} lines, {{ file.fileSize | fileSize }})
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>folder</mat-icon>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="loadDmnFiles()" [disabled]="loading">
+            <mat-icon>refresh</mat-icon>
+            Refresh Files
+          </button>
+        </div>
+
+        <!-- File Content with Pagination -->
+        <div *ngIf="dmnFileContent" class="file-content-section">
+          <div class="file-info">
+            <h3>{{ dmnFileContent.fileName }}</h3>
+            <p>Total: {{ dmnFileContent.totalLines }} lines | Page {{ dmnFileContent.currentPage }} / {{ dmnFileContent.totalPages }}</p>
+          </div>
+
+          <!-- Pagination Controls -->
+          <div class="pagination-controls">
+            <div class="pagination-left">
+              <button mat-stroked-button color="primary" (click)="goToFirstPage()" [disabled]="!dmnFileContent.hasPreviousPage">
+                <mat-icon>first_page</mat-icon>
+                First
+              </button>
+              <button mat-stroked-button color="primary" (click)="prevDmnPage()" [disabled]="!dmnFileContent.hasPreviousPage">
+                <mat-icon>chevron_left</mat-icon>
+                Previous
+              </button>
+            </div>
+            
+            <div class="page-info">
+              <span>Page {{ dmnFileContent.currentPage }} / {{ dmnFileContent.totalPages }}</span>
+              <span class="line-info">Lines {{ dmnFileContent.startLine }} - {{ dmnFileContent.endLine }} / {{ dmnFileContent.totalLines }}</span>
+            </div>
+            
+            <div class="pagination-right">
+              <button mat-stroked-button color="primary" (click)="nextDmnPage()" [disabled]="!dmnFileContent.hasNextPage">
+                <mat-icon>chevron_right</mat-icon>
+                Next
+              </button>
+              <button mat-stroked-button color="primary" (click)="goToLastPage()" [disabled]="!dmnFileContent.hasNextPage">
+                <mat-icon>last_page</mat-icon>
+                Last
+              </button>
+            </div>
+          </div>
+
+          <mat-card class="file-content-viewer">
+            <pre>{{ dmnFileContent.content }}</pre>
+          </mat-card>
+        </div>
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
 <!-- Loading Overlay -->
 <div *ngIf="loading" class="loading-overlay">
   <mat-card class="loading-card">
     <mat-spinner diameter="50"></mat-spinner>
-    <p>Đang xử lý...</p>
+    <p>Processing...</p>
   </mat-card>
 </div>
 
@@ -16,7 +280,7 @@
   <mat-card class="error-card">
     <div class="error-header">
       <mat-icon class="error-icon">warning</mat-icon>
-      <span class="error-title">Lỗi</span>
+      <span class="error-title">Error</span>
       <button mat-icon-button (click)="clearError()" class="close-button">
         <mat-icon>close</mat-icon>
       </button>
@@ -30,119 +294,11 @@
   <mat-card class="warning-card">
     <div class="warning-header">
       <mat-icon class="warning-icon">lightbulb</mat-icon>
-      <span class="warning-title">Gợi ý</span>
+      <span class="warning-title">Suggestion</span>
       <button mat-icon-button (click)="clearError()" class="close-button">
         <mat-icon>close</mat-icon>
       </button>
     </div>
     <p class="warning-message">{{ timeoutWarning }}</p>
-  </mat-card>
-</div>
-
-<div class="dmn-tester-container">
-  <mat-card class="mt-4">
-    <h2><mat-icon>auto_awesome</mat-icon> Generate Tests from DMN</h2>
-    <form [formGroup]="generateForm" (ngSubmit)="generateTests()" class="form-section">
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>DMN File Name</mat-label>
-        <input matInput formControlName="dmnFileName" placeholder="dinnerDecisions.dmn">
-        <mat-icon matSuffix>description</mat-icon>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!generateForm.valid || loading">
-        <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
-        <mat-icon *ngIf="!loading">play_arrow</mat-icon>
-        <span *ngIf="!loading">Generate Tests</span>
-      </button>
-    </form>
-    <div *ngIf="generatedTests.length > 0" style="margin-top: 20px;">
-      <h3><mat-icon>list</mat-icon> Generated Tests ({{ generatedTests.length }})</h3>
-      <mat-card class="json-viewer">
-        <pre>{{ generatedTests | json }}</pre>
-      </mat-card>
-      <button mat-raised-button color="accent" (click)="convertToBatch()" style="margin-top: 10px;">
-        <mat-icon>transform</mat-icon>
-        Convert to Batch Test
-      </button>
-    </div>
-  </mat-card>
-
-  <mat-card class="mt-4">
-    <h2><mat-icon>batch_prediction</mat-icon> Run Batch Tests</h2>
-    <form [formGroup]="batchForm" (ngSubmit)="runBatchTest()" class="form-section">
-      <mat-form-field appearance="outline" class="w-100" floatLabel="always">
-        <mat-label>Batch Test Data (JSON)</mat-label>
-        <textarea matInput formControlName="batchData" rows="10" placeholder='{"items": [{"dmnFileName": "dinnerDecisions.dmn", "decisionId": "beverages", "testCases": [{"inputs": {"desiredDish": "Stew", "guestsWithChildren": "true"}, "expectedOutputs": {"beverages": "Guiness"}}]}]}'></textarea>
-        <mat-icon matSuffix>code</mat-icon>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!batchForm.valid || loading">
-        <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
-        <mat-icon *ngIf="!loading">play_circle</mat-icon>
-        <span *ngIf="!loading">Run Batch Test</span>
-      </button>
-    </form>
-    <div *ngIf="batchResults.length > 0" style="margin-top: 20px;">
-      <h3><mat-icon>assessment</mat-icon> Batch Test Results</h3>
-      <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
-        <button mat-stroked-button color="primary" (click)="prevBatchPage()" [disabled]="batchPage === 1">
-          <mat-icon>chevron_left</mat-icon>
-          Prev
-        </button>
-        <span>Page {{ batchPage }} / {{ totalBatchPages() }}</span>
-        <button mat-stroked-button color="primary" (click)="nextBatchPage()" [disabled]="batchPage === totalBatchPages()">
-          Next
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-      </div>
-      <mat-accordion>
-        <mat-expansion-panel *ngFor="let result of pagedBatchResults()">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <mat-icon>rule</mat-icon>
-              {{ result.decisionId }} ({{ result.dmnFileName }})
-            </mat-panel-title>
-            <mat-panel-description>
-              <span style="display: inline-flex; align-items: center; margin-right: 32px;">
-                <mat-icon color="primary">check_circle</mat-icon>
-                <span class="badge-number pass-badge">{{ getPassCount(result.results) }}</span>
-                <span style="margin-left: 4px;">PASS</span>
-              </span>
-              <span style="display: inline-flex; align-items: center;">
-                <mat-icon color="warn">error</mat-icon>
-                <span class="badge-number fail-badge">{{ getFailCount(result.results) }}</span>
-                <span style="margin-left: 4px;">FAIL</span>
-              </span>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
-            <button mat-stroked-button color="accent" (click)="prevTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === 1">
-              <mat-icon>navigate_before</mat-icon>
-              Prev
-            </button>
-            <span>Page {{ batchTestPages[result.decisionId] || 1 }} / {{ totalTestPages(result) }}</span>
-            <button mat-stroked-button color="accent" (click)="nextTestPage(result)" [disabled]="(batchTestPages[result.decisionId] || 1) === totalTestPages(result)">
-              Next
-              <mat-icon>navigate_next</mat-icon>
-            </button>
-          </div>
-          <div *ngFor="let testResult of pagedTestResults(result)" class="test-case-block">
-            <mat-card class="test-case-header" [ngClass]="testResult.pass ? 'pass' : 'fail'">
-              <strong>{{ testResult.name }}</strong>
-              <span class="badge" [ngClass]="testResult.pass ? 'badge-success' : 'badge-danger'">
-                <mat-icon>{{ testResult.pass ? 'check_circle' : 'cancel' }}</mat-icon>
-                {{ testResult.pass ? 'PASS' : 'FAIL' }}
-              </span>
-            </mat-card>
-            <mat-card class="test-case-json-block">
-              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>input</mat-icon> Inputs:</span> <span class="test-case-json">{{ testResult.inputs | json }}</span></div>
-              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>target</mat-icon> Expected:</span> <span class="test-case-json">{{ testResult.expectedOutputs | json }}</span></div>
-              <div class="test-case-json-row"><span class="test-case-label"><mat-icon>fact_check</mat-icon> Actual:</span> <span class="test-case-json">{{ testResult.actualOutputs | json }}</span></div>
-              <div class="test-case-json-row" *ngIf="getDiffKeys(testResult.diff).length > 0">
-                <span class="test-case-label"><mat-icon>compare_arrows</mat-icon> Diff:</span> <span class="test-case-json">{{ testResult.diff | json }}</span>
-              </div>
-            </mat-card>
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
   </mat-card>
 </div> 

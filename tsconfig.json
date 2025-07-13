@@ -16,8 +16,8 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "importsNotUsedAsValues": "remove",
-    "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
+    "target": "es2015",
     "lib": [
       "ES2022",
       "dom"

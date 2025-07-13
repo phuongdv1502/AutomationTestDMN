@@ -31,11 +31,17 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<IDmnEngine>(provider => 
     new DmnEngine(timeoutSettings.DmnEvaluationTimeout, timeoutSettings.FileReadTimeout));
 builder.Services.AddSingleton<IDmnTestGenerator, DmnTestGenerator>();
+builder.Services.AddSingleton<IDmnFileAnalyzer, DmnFileAnalyzer>();
 builder.Services.AddTransient<GetConfigsUseCase>();
 builder.Services.AddTransient<GetConfigUseCase>();
 builder.Services.AddTransient<EvaluateDmnUseCase>();
 builder.Services.AddTransient<TestDmnUseCase>();
 builder.Services.AddTransient<GenerateTestFromDmnUseCase>();
+builder.Services.AddTransient<AnalyzeDmnFileUseCase>();
+builder.Services.AddTransient<ExtractDecisionUseCase>();
+builder.Services.AddTransient<GetDecisionSummariesUseCase>();
+builder.Services.AddTransient<GetDecisionChunksUseCase>();
+builder.Services.AddTransient<GetDecisionChunkUseCase>();
 
 var app = builder.Build();
 

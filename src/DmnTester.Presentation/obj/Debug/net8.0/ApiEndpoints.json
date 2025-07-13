@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "AnalyzeDmnFile",
+    "RelativePath": "api/dmn/analyze-dmn",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "AnalyzeDmnFileDetailed",
+    "RelativePath": "api/dmn/analyze-file",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
     "Method": "BatchTest",
     "RelativePath": "api/dmn/batch-test",
     "HttpMethod": "POST",
@@ -59,6 +91,79 @@
   },
   {
     "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GetDecisionChunk",
+    "RelativePath": "api/dmn/decision-chunk",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "decisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "chunkIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "chunkSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GetDecisionChunks",
+    "RelativePath": "api/dmn/decision-chunks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "decisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "chunkSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GetDecisionSummaries",
+    "RelativePath": "api/dmn/decision-summaries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
     "Method": "Evaluate",
     "RelativePath": "api/dmn/evaluate",
     "HttpMethod": "POST",
@@ -75,6 +180,59 @@
   },
   {
     "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "EvaluateDecisionChunk",
+    "RelativePath": "api/dmn/evaluate-chunk",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.EvaluateChunkRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "EvaluateDecision",
+    "RelativePath": "api/dmn/evaluate-decision",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "DmnTester.Presentation.Models.EvaluateDecisionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "ExtractDecision",
+    "RelativePath": "api/dmn/extract-decision",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "decisionId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
     "Method": "GenerateTestFromDmn",
     "RelativePath": "api/dmn/generate-test",
     "HttpMethod": "POST",
@@ -83,8 +241,70 @@
     "Parameters": [
       {
         "Name": "request",
+        "Type": "DmnTester.Presentation.Controllers.DmnController\u002BGenerateTestRequestWithPaging",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "GenerateTestStreaming",
+    "RelativePath": "api/dmn/generate-test-streaming",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
         "Type": "DmnTester.Presentation.Models.GenerateTestRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "chunkIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "chunkSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "ListDmnFiles",
+    "RelativePath": "api/dmn/list-files",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DmnTester.Presentation.Controllers.DmnController",
+    "Method": "ReadDmnFile",
+    "RelativePath": "api/dmn/read-file",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

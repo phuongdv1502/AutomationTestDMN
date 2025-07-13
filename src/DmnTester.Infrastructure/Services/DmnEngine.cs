@@ -156,46 +156,50 @@ public class DmnEngine : IDmnEngine
                 
                 if (isMatch)
                 {
-                    var outputEntry = rule.Descendants().FirstOrDefault(x => x.Name.LocalName == "outputEntry");
+                    var outputEntry = rule.Descendants().Where(x => x.Name.LocalName == "outputEntry");
                     if (outputEntry != null)
                     {
-                        var outputValue = outputEntry.Descendants().FirstOrDefault(x => x.Name.LocalName == "text")?.Value;
-                        if (!string.IsNullOrEmpty(outputValue))
+                        var lst = outputEntry.Descendants().Where(x => x.Name.LocalName == "text").ToList();
+                        foreach (var outputValue in lst)
                         {
-                            // Parse output value - handle JSON objects and simple values
-                            object parsedValue;
-                            var cleanValue = outputValue.Trim('"');
-                            
-                            if (cleanValue.StartsWith("{") && cleanValue.EndsWith("}"))
+                            if (!string.IsNullOrEmpty(outputValue.Value))
                             {
-                                try
+                                // Parse output value - handle JSON objects and simple values
+                                object parsedValue;
+                                var cleanValue = outputValue.Value.Trim('"');
+
+                                if (cleanValue.StartsWith("{") && cleanValue.EndsWith("}"))
                                 {
-                                    parsedValue = JsonSerializer.Deserialize<Dictionary<string, object>>(cleanValue);
+                                    try
+                                    {
+                                        parsedValue = JsonSerializer.Deserialize<Dictionary<string, object>>(cleanValue);
+                                    }
+                                    catch
+                                    {
+                                        parsedValue = cleanValue; // fallback to string if parse fails
+                                    }
                                 }
-                                catch
+                                else if (cleanValue.Equals("true", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    parsedValue = cleanValue; // fallback to string if parse fails
+                                    parsedValue = true;
                                 }
+                                else if (cleanValue.Equals("false", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    parsedValue = false;
+                                }
+                                else if (int.TryParse(cleanValue, out int intVal))
+                                {
+                                    parsedValue = intVal;
+                                }
+                                else
+                                {
+                                    parsedValue = cleanValue;
+                                }
+
+                                matchingOutputs.Add(parsedValue);
+                                Console.WriteLine($"  Output: {parsedValue}");
                             }
-                            else if (cleanValue.Equals("true", StringComparison.OrdinalIgnoreCase))
-                            {
-                                parsedValue = true;
-                            }
-                            else if (cleanValue.Equals("false", StringComparison.OrdinalIgnoreCase))
-                            {
-                                parsedValue = false;
-                            }
-                            else if (int.TryParse(cleanValue, out int intVal))
-                            {
-                                parsedValue = intVal;
-                            }
-                            else
-                            {
-                                parsedValue = cleanValue;
-                            }
-                            
-                            matchingOutputs.Add(parsedValue);
-                            Console.WriteLine($"  Output: {parsedValue}");
+                        
                         }
                     }
                 }

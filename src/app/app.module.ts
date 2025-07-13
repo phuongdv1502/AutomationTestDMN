@@ -15,10 +15,13 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { DmnTesterComponent } from './dmn-tester/dmn-tester.component';
 import { ApiService } from './services/api.service';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 const routes: Routes = [
   { path: '', component: DmnTesterComponent },
@@ -28,7 +31,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DmnTesterComponent
+    DmnTesterComponent,
+    FileSizePipe
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ const routes: Routes = [
     MatBadgeModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

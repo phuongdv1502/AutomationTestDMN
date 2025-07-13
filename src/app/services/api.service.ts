@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, timeout, catchError, of, TimeoutError } from 'rxjs';
 import { retry, delay } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface GenerateTestRequest {
   dmnFileName: string;
@@ -49,7 +50,7 @@ export interface TimeoutConfig {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://localhost:5002/api/dmn';
+  private baseUrl = environment.apiUrl;
   
   // Default timeout configuration
   private timeoutConfig: TimeoutConfig = {
@@ -114,7 +115,7 @@ export class ApiService {
     console.log(`Generating test cases for ${request.dmnFileName} with timeout: ${this.timeoutConfig.requestTimeout}ms`);
     
     return this.createRequestWithTimeout(
-      `${this.baseUrl}/generate-test`, 
+      `${this.baseUrl}/dmn/generate-test`, 
       request, 
       this.timeoutConfig.requestTimeout,
       'test generation'
@@ -137,7 +138,7 @@ export class ApiService {
     console.log(`Running batch test with ${totalTestCases} test cases, timeout: ${this.timeoutConfig.batchTimeout}ms`);
     
     return this.createRequestWithTimeout(
-      `${this.baseUrl}/batch-test`, 
+      `${this.baseUrl}/dmn/batch-test`, 
       request, 
       this.timeoutConfig.batchTimeout,
       'batch testing'
@@ -148,7 +149,7 @@ export class ApiService {
     console.log(`Converting generate to batch with timeout: ${this.timeoutConfig.requestTimeout}ms`);
     
     return this.createRequestWithTimeout(
-      `${this.baseUrl}/convert-generate-to-batch`, 
+      `${this.baseUrl}/dmn/convert-generate-to-batch`, 
       request, 
       this.timeoutConfig.requestTimeout,
       'convert to batch'
@@ -170,5 +171,177 @@ export class ApiService {
       return 'medium';
     }
     return 'low';
+  }
+
+  // DMN File Viewer methods
+  listDmnFiles(): Observable<any> {
+    console.log('Loading DMN files list');
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/list-files`)
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying list files (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'loading DMN files'))
+      );
+  }
+
+  readDmnFile(fileName: string, page: number = 1, pageSize: number = 100): Observable<any> {
+    console.log(`Reading DMN file ${fileName}, page ${page}, pageSize ${pageSize}`);
+    
+    const params = {
+      fileName: fileName,
+      page: page.toString(),
+      pageSize: pageSize.toString()
+    };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/read-file`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying read file (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'reading DMN file'))
+      );
+  }
+
+  analyzeDmnFile(fileName: string): Observable<any> {
+    console.log(`Analyzing DMN file ${fileName}`);
+    
+    const params = { fileName: fileName };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/analyze-dmn`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying analyze file (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'analyzing DMN file'))
+      );
+  }
+
+  // Decision-level methods
+  getDecisionSummaries(fileName: string): Observable<any> {
+    console.log(`Getting decision summaries for ${fileName}`);
+    
+    const params = { fileName: fileName };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/decision-summaries`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying get decision summaries (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'getting decision summaries'))
+      );
+  }
+
+  extractDecision(fileName: string, decisionId: string): Observable<any> {
+    console.log(`Extracting decision ${decisionId} from ${fileName}`);
+    
+    const params = { 
+      fileName: fileName,
+      decisionId: decisionId
+    };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/extract-decision`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying extract decision (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'extracting decision'))
+      );
+  }
+
+  evaluateDecision(request: any): Observable<any> {
+    console.log(`Evaluating decision ${request.decisionId} from ${request.fileName}`);
+    
+    return this.createRequestWithTimeout(
+      `${this.baseUrl}/dmn/evaluate-decision`, 
+      request, 
+      this.timeoutConfig.evaluationTimeout,
+      'decision evaluation'
+    );
+  }
+
+  // Decision chunking methods
+  getDecisionChunks(fileName: string, decisionId: string, chunkSize: number = 50): Observable<any> {
+    console.log(`Getting decision chunks for ${decisionId} from ${fileName}, chunk size: ${chunkSize}`);
+    
+    const params = { 
+      fileName: fileName,
+      decisionId: decisionId,
+      chunkSize: chunkSize.toString()
+    };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/decision-chunks`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying get decision chunks (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'getting decision chunks'))
+      );
+  }
+
+  getDecisionChunk(fileName: string, decisionId: string, chunkIndex: number, chunkSize: number = 50): Observable<any> {
+    console.log(`Getting decision chunk ${chunkIndex} for ${decisionId} from ${fileName}`);
+    
+    const params = { 
+      fileName: fileName,
+      decisionId: decisionId,
+      chunkIndex: chunkIndex.toString(),
+      chunkSize: chunkSize.toString()
+    };
+    
+    return this.http.get<any>(`${this.baseUrl}/dmn/decision-chunk`, { params })
+      .pipe(
+        timeout(this.timeoutConfig.requestTimeout),
+        retry({
+          count: this.timeoutConfig.retryAttempts,
+          delay: (error, retryCount) => {
+            console.log(`Retrying get decision chunk (attempt ${retryCount + 1}/${this.timeoutConfig.retryAttempts + 1})`);
+            return of(null).pipe(delay(this.timeoutConfig.retryDelay));
+          }
+        }),
+        catchError((error) => this.handleError(error, 'getting decision chunk'))
+      );
+  }
+
+  evaluateDecisionChunk(request: any): Observable<any> {
+    console.log(`Evaluating decision chunk ${request.chunkIndex} for ${request.decisionId} from ${request.fileName}`);
+    
+    return this.createRequestWithTimeout(
+      `${this.baseUrl}/dmn/evaluate-chunk`, 
+      request, 
+      this.timeoutConfig.evaluationTimeout,
+      'decision chunk evaluation'
+    );
   }
 } 

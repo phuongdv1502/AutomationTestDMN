@@ -189,6 +189,329 @@ h3 {
   }
 }
 
+// Tab Content Styles
+.tab-content {
+  padding: 16px 0;
+}
+
+// DMN Viewer Styles
+.file-selection-section {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  
+  mat-form-field {
+    flex: 1;
+  }
+  
+  button {
+    height: 56px;
+  }
+}
+
+.file-info {
+  margin-bottom: 16px;
+  
+  h3 {
+    margin-bottom: 8px;
+    color: #1976d2;
+  }
+  
+  p {
+    color: #666;
+    margin: 0;
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  
+  .pagination-left, .pagination-right {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .page-info {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    span {
+      font-weight: 500;
+      color: #666;
+      
+      &.line-info {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+  }
+  
+  .pagination-options {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    
+    .page-size-field {
+      width: 120px;
+    }
+    
+    .page-jump-field {
+      width: 100px;
+    }
+  }
+}
+
+.file-content-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+}
+
+.file-content {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  max-height: 600px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 4px;
+  outline: none; // Remove focus outline for better UX
+}
+
+.keyboard-shortcuts {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  text-align: center;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.file-line {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  
+  &:hover {
+    background: #f8f9fa;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.line-number {
+  min-width: 60px;
+  padding: 2px 8px;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 11px;
+  text-align: right;
+  border-right: 1px solid #e0e0e0;
+  user-select: none;
+}
+
+.line-content {
+  flex: 1;
+  padding: 2px 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  
+  // XML syntax highlighting
+  .xml-tag {
+    color: #0066cc;
+    font-weight: 500;
+  }
+  
+  .xml-attr {
+    color: #cc6600;
+  }
+  
+  .xml-text {
+    color: #333;
+  }
+  
+  .xml-comment {
+    color: #666;
+    font-style: italic;
+  }
+}
+
+// File Analysis Styles
+.file-analysis-card {
+  margin-bottom: 16px;
+  
+  mat-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+  }
+  
+  mat-card-header {
+    padding-bottom: 8px;
+    
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      color: #495057;
+      
+      mat-icon {
+        color: #007bff;
+      }
+    }
+  }
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  
+  .label {
+    font-weight: 500;
+    color: #6c757d;
+  }
+  
+  .value {
+    font-weight: 600;
+    color: #495057;
+  }
+}
+
+.complexity-low {
+  color: #28a745;
+}
+
+.complexity-medium {
+  color: #ffc107;
+}
+
+.complexity-high {
+  color: #dc3545;
+}
+
+.recommendation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  
+  mat-icon {
+    font-size: 20px;
+  }
+  
+  &.recommendation-low {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  &.recommendation-medium {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+  }
+  
+  &.recommendation-high {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+}
+
+.decisions-list {
+  margin-top: 16px;
+  
+  h4 {
+    margin-bottom: 12px;
+    color: #495057;
+    font-size: 16px;
+  }
+}
+
+.decision-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  
+  .decision-id {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  
+  .decision-name {
+    font-weight: 500;
+    color: #495057;
+  }
+}
+
+.warning-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  margin-top: 12px;
+  
+  mat-icon {
+    color: #dc3545;
+  }
+}
+
+.large-file-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #e3f2fd;
+  color: #1565c0;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  
+  mat-icon {
+    color: #1976d2;
+    font-size: 18px;
+  }
+}
+
 .test-case-block {
   margin-bottom: 18px;
 }
@@ -422,6 +745,373 @@ mat-expansion-panel {
       font-size: 20px;
       width: 20px;
       height: 20px;
+    }
+  }
+}
+
+// Decision Manager Styles
+.decision-summaries-section {
+  margin-top: 24px;
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.decision-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  &.selected {
+    border-color: #1976d2;
+    background: #f3f8ff;
+  }
+  
+  mat-card-header {
+    padding-bottom: 8px;
+    
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      
+      mat-icon {
+        color: #1976d2;
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+    mat-card-subtitle {
+      font-size: 12px;
+      color: #666;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+    }
+  }
+}
+
+.decision-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  
+  .stat-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .stat-value {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    
+    &.text-success {
+      color: #388e3c;
+    }
+    
+    &.text-warning {
+      color: #f57c00;
+    }
+    
+    &.text-danger {
+      color: #d32f2f;
+    }
+  }
+}
+
+.large-decision-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fff3e0;
+  border-radius: 6px;
+  border-left: 4px solid #ff9800;
+  
+  mat-icon {
+    color: #f57c00;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  span {
+    font-size: 12px;
+    color: #e65100;
+    font-weight: 500;
+  }
+}
+
+.selected-decision-section {
+  margin-top: 32px;
+}
+
+.evaluation-section {
+  margin-bottom: 24px;
+  
+  mat-card-content {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
+
+.decision-content-section {
+  margin-bottom: 24px;
+  
+  .xml-content {
+    background: #f5f5f5;
+    border-radius: 6px;
+    padding: 16px;
+    max-height: 400px;
+    overflow: auto;
+    
+    pre {
+      margin: 0;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    code {
+      color: #37474f;
+    }
+  }
+}
+
+.evaluation-result-section {
+  margin-top: 24px;
+  
+  .result-card {
+    background: #f8f9fa;
+    border-left: 4px solid #28a745;
+    
+    pre {
+      margin: 0;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #37474f;
+    }
+  }
+}
+
+// Responsive design for Decision Manager
+@media (max-width: 768px) {
+  .decision-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .decision-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .evaluation-section, .decision-content-section {
+    mat-card-content {
+      padding: 12px;
+    }
+  }
+}
+
+// Chunking Styles
+.chunking-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #e3f2fd;
+  border-radius: 6px;
+  border-left: 4px solid #2196f3;
+  
+  mat-icon {
+    color: #1976d2;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+  
+  span {
+    font-size: 11px;
+    color: #1565c0;
+    font-weight: 500;
+  }
+}
+
+.chunking-controls {
+  margin-bottom: 24px;
+  
+  .chunking-card {
+    mat-card-header {
+      padding-bottom: 8px;
+      
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        
+        mat-icon {
+          color: #1976d2;
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      
+      mat-card-subtitle {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+  
+  .chunking-options {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    
+    mat-form-field {
+      min-width: 150px;
+    }
+  }
+}
+
+.chunk-navigation {
+  margin-bottom: 24px;
+  
+  .chunk-nav-card {
+    mat-card-content {
+      padding: 16px;
+    }
+  }
+  
+  .chunk-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    
+    .chunk-info {
+      flex: 1;
+      text-align: center;
+      
+      span {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+      
+      mat-progress-bar {
+        margin-bottom: 8px;
+      }
+      
+      .chunk-details {
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.chunk-evaluation-section {
+  margin-bottom: 24px;
+  
+  .evaluation-section {
+    mat-card-header {
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        
+        mat-icon {
+          color: #1976d2;
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      
+      mat-card-subtitle {
+        font-size: 12px;
+        color: #666;
+        font-family: 'Fira Mono', 'Consolas', monospace;
+      }
+    }
+  }
+}
+
+.full-decision-section {
+  margin-top: 24px;
+  
+  h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #424242;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    
+    mat-icon {
+      color: #666;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Responsive design for chunking
+@media (max-width: 768px) {
+  .chunking-options {
+    flex-direction: column;
+    align-items: stretch;
+    
+    mat-form-field {
+      min-width: auto;
+    }
+  }
+  
+  .chunk-nav-controls {
+    flex-direction: column;
+    gap: 12px;
+    
+    .chunk-info {
+      order: 2;
     }
   }
 } 

@@ -32,6 +32,9 @@ public class DmnTestGenerator : IDmnTestGenerator
         var inputKeys = GetInputKeys(decisionTable, nsmgr);
         var outputKeys = GetOutputKeys(decisionTable, nsmgr);
 
+        // Sinh đủ tổ hợp test case
+        var exhaustiveTestCases = GenerateCombinationTestCases(xmlDoc, nsmgr, decisionId, inputKeys, outputKeys);
+
         var config = new DmnConfig
         {
             DecisionId = decisionId,
@@ -39,7 +42,7 @@ public class DmnTestGenerator : IDmnTestGenerator
             Data = new DmnConfigData
             {
                 Inputs = ExtractInputs(xmlDoc, nsmgr, decisionId),
-                TestCases = GenerateCombinationTestCases(xmlDoc, nsmgr, decisionId, inputKeys, outputKeys)
+                TestCases = exhaustiveTestCases
             }
         };
 
@@ -483,6 +486,8 @@ public class DmnTestGenerator : IDmnTestGenerator
         foreach (XmlNode outputEntry in outputEntries!)
         {
             var text = outputEntry.SelectSingleNode("dmn:text", nsmgr)?.InnerText?.Trim();
+            // DEBUG: Log mapping
+            Console.WriteLine($"[DEBUG] OutputEntry idx={idx}, key={(idx < outputKeys.Count ? outputKeys[idx] : "OUT_OF_RANGE")}, text={text}");
             if (!string.IsNullOrEmpty(text) && idx < outputKeys.Count)
             {
                 object value;
@@ -519,61 +524,120 @@ public class DmnTestGenerator : IDmnTestGenerator
                 }
                 outputs[outputKeys[idx]] = value;
             }
+            else if (idx < outputKeys.Count)
+            {
+                // Nếu text rỗng, log cảnh báo
+                Console.WriteLine($"[DEBUG][WARNING] OutputEntry idx={idx}, key={outputKeys[idx]} is empty!");
+                outputs[outputKeys[idx]] = null;
+            }
+            else
+            {
+                // Nếu index vượt quá số lượng outputKeys, log lỗi
+                Console.WriteLine($"[DEBUG][ERROR] OutputEntry idx={idx} vượt quá số lượng outputKeys ({outputKeys.Count})");
+            }
             idx++;
+        }
+        // Nếu số lượng outputEntry < outputKeys, bổ sung null cho các key còn thiếu
+        for (int i = idx; i < outputKeys.Count; i++)
+        {
+            Console.WriteLine($"[DEBUG][WARNING] Missing outputEntry for key={outputKeys[i]}");
+            outputs[outputKeys[i]] = null;
         }
         return outputs;
     }
 
     public async Task<List<(string decisionId, DmnConfig testConfig)>> GenerateAllTestConfigsFromDmnAsync(string dmnPath)
     {
-        var xmlDoc = new XmlDocument();
-        xmlDoc.Load(dmnPath);
-        var nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
-        nsmgr.AddNamespace("dmn", "https://www.omg.org/spec/DMN/20191111/MODEL/");
-
-        var decisionNodes = xmlDoc.SelectNodes("//dmn:decision[dmn:decisionTable]", nsmgr);
+        using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(2)); // 2 phút timeout
         
-        // Validate that DMN file has at least one decision with decision table
-        if (decisionNodes == null || decisionNodes.Count == 0)
+        try
         {
-            throw new InvalidOperationException($"DMN file '{Path.GetFileName(dmnPath)}' contains no decisions with decision tables.");
-        }
-
-        var result = new List<(string, DmnConfig)>();
-        var validDecisions = new List<string>();
-        var invalidDecisions = new List<string>();
-
-        foreach (XmlNode decision in decisionNodes!)
-        {
-            var decisionId = decision.Attributes?["id"]?.Value ?? "";
-            if (!string.IsNullOrEmpty(decisionId))
+            // Kiểm tra file size trước khi xử lý
+            var fileInfo = new FileInfo(dmnPath);
+            if (fileInfo.Length > 50 * 1024 * 1024) // 50MB
             {
-                try
+                throw new InvalidOperationException($"File quá lớn ({fileInfo.Length / 1024 / 1024}MB). Vui lòng sử dụng file nhỏ hơn hoặc chia nhỏ file DMN.");
+            }
+
+            var xmlDoc = new XmlDocument();
+            xmlDoc.Load(dmnPath);
+            cts.Token.ThrowIfCancellationRequested();
+            
+            var nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
+            nsmgr.AddNamespace("dmn", "https://www.omg.org/spec/DMN/20191111/MODEL/");
+
+            var decisionNodes = xmlDoc.SelectNodes("//dmn:decision[dmn:decisionTable]", nsmgr);
+            
+            // Validate that DMN file has at least one decision with decision table
+            if (decisionNodes == null || decisionNodes.Count == 0)
+            {
+                throw new InvalidOperationException($"DMN file '{Path.GetFileName(dmnPath)}' contains no decisions with decision tables.");
+            }
+
+            // Kiểm tra số lượng rules tổng cộng
+            var totalRules = xmlDoc.SelectNodes("//dmn:rule", nsmgr)?.Count ?? 0;
+            if (totalRules > 10000)
+            {
+                throw new InvalidOperationException($"File có quá nhiều rules ({totalRules}). Vui lòng chia nhỏ file DMN.");
+            }
+
+            var result = new List<(string, DmnConfig)>();
+            var validDecisions = new List<string>();
+            var invalidDecisions = new List<string>();
+
+            foreach (XmlNode decision in decisionNodes!)
+            {
+                cts.Token.ThrowIfCancellationRequested();
+                
+                var decisionId = decision.Attributes?["id"]?.Value ?? "";
+                if (!string.IsNullOrEmpty(decisionId))
                 {
-                    var config = await GenerateTestConfigFromDmnAsync(dmnPath, decisionId);
-                    result.Add((decisionId, config));
-                    validDecisions.Add(decisionId);
-                }
-                catch (InvalidOperationException ex)
-                {
-                    invalidDecisions.Add(decisionId);
-                    // Log the error but continue processing other decisions
-                    Console.WriteLine($"Warning: {ex.Message}");
+                    try
+                    {
+                        // Kiểm tra số rules của decision này
+                        var decisionRules = decision.SelectNodes(".//dmn:rule", nsmgr)?.Count ?? 0;
+                        if (decisionRules > 1000)
+                        {
+                            Console.WriteLine($"Warning: Decision '{decisionId}' có {decisionRules} rules, bỏ qua để tránh timeout.");
+                            invalidDecisions.Add(decisionId);
+                            continue;
+                        }
+
+                        var config = await GenerateTestConfigFromDmnAsync(dmnPath, decisionId);
+                        result.Add((decisionId, config));
+                        validDecisions.Add(decisionId);
+                        
+                        Console.WriteLine($"Generated test config for decision: {decisionId}");
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        invalidDecisions.Add(decisionId);
+                        Console.WriteLine($"Warning: {ex.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        invalidDecisions.Add(decisionId);
+                        Console.WriteLine($"Error processing decision {decisionId}: {ex.Message}");
+                    }
                 }
             }
-        }
 
-        // If no valid decisions found, throw exception
-        if (result.Count == 0)
-        {
-            var errorMessage = $"No valid decisions found in DMN file '{Path.GetFileName(dmnPath)}'. ";
-            if (invalidDecisions.Count > 0)
+            // If no valid decisions found, throw exception
+            if (result.Count == 0)
             {
-                errorMessage += $"Invalid decisions: {string.Join(", ", invalidDecisions)}";
+                var errorMessage = $"No valid decisions found in DMN file '{Path.GetFileName(dmnPath)}'. ";
+                if (invalidDecisions.Count > 0)
+                {
+                    errorMessage += $"Invalid decisions: {string.Join(", ", invalidDecisions)}";
+                }
+                throw new InvalidOperationException(errorMessage);
             }
-            throw new InvalidOperationException(errorMessage);
-        }
 
-        return result;
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            throw new InvalidOperationException("Generate test cases timeout sau 2 phút. File có thể quá lớn hoặc phức tạp.");
+        }
     }
 } 
