@@ -1,0 +1,7 @@
+src/.vs/
+src/DmnTester.Application/obj/
+src/DmnTester.Domain/obj/
+src/DmnTester.Infrastructure/obj/
+src/DmnTester.Presentation/obj/DmnTester.Presentation.csproj.nuget.dgspec.json
+src/DmnTester.Presentation/obj/DmnTester.Presentation.csproj.nuget.g.props
+src/DmnTester.Presentation/obj/
