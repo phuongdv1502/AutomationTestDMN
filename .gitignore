@@ -5,3 +5,9 @@ src/DmnTester.Infrastructure/obj/
 src/DmnTester.Presentation/obj/DmnTester.Presentation.csproj.nuget.dgspec.json
 src/DmnTester.Presentation/obj/DmnTester.Presentation.csproj.nuget.g.props
 src/DmnTester.Presentation/obj/
+node_modules/
+.angular/cache/
+src/DmnTester.Application/bin/
+src/DmnTester.Domain/bin/
+src/DmnTester.Infrastructure/bin/
+src/DmnTester.Presentation/bin/
